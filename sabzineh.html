@@ -1,0 +1,1243 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>سبزینه | فروشگاه گل و گیاه</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    background: #f2faf7;
+    color: #173b36;
+}
+
+/* HEADER */
+
+header {
+    background: white;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d8ebe5;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    color: #087f70;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+nav button {
+    border: none;
+    background: transparent;
+    color: #087f70;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+nav button:hover,
+nav button.active {
+    background: #087f70;
+    color: white;
+}
+
+/* PAGES */
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* HERO */
+
+.hero {
+    padding: 70px 7%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 46px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: #647b76;
+    line-height: 2;
+    font-size: 18px;
+}
+
+.hero-card {
+    height: 300px;
+    border-radius: 30px;
+    background: linear-gradient(135deg,#087f70,#064e49);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+/* MAIN */
+
+main {
+    padding: 20px 7% 60px;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* PRODUCTS */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #d8ebe5;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 10px 25px rgba(0,80,70,.06);
+}
+
+.plant {
+    height: 180px;
+    border-radius: 15px;
+    background: #e0f6ef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 75px;
+}
+
+.card h3 {
+    margin-bottom: 8px;
+}
+
+.desc {
+    color: #71817e;
+    font-size: 14px;
+}
+
+.product-bottom {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    color: #087f70;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.add {
+    background: #087f70;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.add:hover {
+    background: #06675c;
+}
+
+/* CART */
+
+.cart {
+    background: white;
+    border-radius: 18px;
+    padding: 20px;
+    border: 1px solid #d8ebe5;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.total {
+    margin-top: 25px;
+    color: #087f70;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* DASHBOARD */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+}
+
+.stat {
+    background: white;
+    border: 1px solid #d8ebe5;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.stat-title {
+    color: #71817e;
+}
+
+.stat-value {
+    display: block;
+    margin-top: 10px;
+    color: #087f70;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+/* CHART */
+
+.chart {
+    height: 300px;
+    background: white;
+    border-radius: 18px;
+    margin-top: 25px;
+    padding: 25px;
+    display: flex;
+    align-items: end;
+    gap: 15px;
+}
+
+.bar {
+    flex: 1;
+    background: linear-gradient(#14b8a6,#087f70);
+    border-radius: 8px 8px 0 0;
+    position: relative;
+}
+
+.bar span {
+    position: absolute;
+    bottom: -25px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #647b76;
+}
+
+/* LOGIN */
+
+.login {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 18px;
+    border: 1px solid #d8ebe5;
+}
+
+.login input {
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0;
+    border: 1px solid #d8ebe5;
+    border-radius: 10px;
+}
+
+.login button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #087f70;
+    color: white;
+    cursor: pointer;
+}
+
+/* TABLE */
+
+.table {
+    background: white;
+    padding: 20px;
+    border-radius: 18px;
+    margin-top: 25px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,td {
+    padding: 13px;
+    text-align: right;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* CHAT */
+
+.chat {
+    display: grid;
+    grid-template-columns: 270px 1fr;
+    gap: 20px;
+}
+
+.customers {
+    background: white;
+    padding: 15px;
+    border-radius: 18px;
+    border: 1px solid #d8ebe5;
+}
+
+.customer {
+    width: 100%;
+    border: none;
+    padding: 13px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    background: #f2faf7;
+    text-align: right;
+    cursor: pointer;
+}
+
+.customer.active {
+    background: #d4f1e9;
+    color: #087f70;
+    font-weight: bold;
+}
+
+.messages {
+    height: 400px;
+    background: #f7fbfa;
+    border-radius: 18px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.message {
+    max-width: 70%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+}
+
+.from-customer {
+    background: white;
+    border: 1px solid #d8ebe5;
+}
+
+.from-admin {
+    background: #087f70;
+    color: white;
+    margin-right: auto;
+}
+
+.send {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.send input {
+    flex: 1;
+    padding: 13px;
+    border: 1px solid #d8ebe5;
+    border-radius: 10px;
+}
+
+.send button {
+    background: #087f70;
+    color: white;
+    border: none;
+    padding: 13px 20px;
+    border-radius: 10px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .chat {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:500px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 33px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+🌿 سبزینه
+</div>
+
+<nav>
+
+<button class="active" onclick="page('shop',this)">
+فروشگاه
+</button>
+
+<button onclick="page('cart',this)">
+🛒 سبد خرید
+(<span id="cartCount">0</span>)
+</button>
+
+<button onclick="page('dashboard',this)">
+📊 داشبورد
+</button>
+
+<button onclick="page('chat',this)">
+💬 پیام‌ها
+</button>
+
+</nav>
+
+</header>
+
+
+<!-- فروشگاه -->
+
+<section id="shop" class="page active">
+
+<div class="hero">
+
+<div>
+
+<h1>
+خانه‌ات را سبزتر کن 🌱
+</h1>
+
+<p>
+انواع گل و گیاه آپارتمانی
+با بهترین کیفیت برای خانه و محل کار.
+</p>
+
+<button class="add" onclick="productsScroll()">
+مشاهده محصولات
+</button>
+
+</div>
+
+<div class="hero-card">
+🌿 سبز زندگی کن
+</div>
+
+</div>
+
+
+<main>
+
+<div class="title">
+
+<h2>
+کاتالوگ گل و گیاه
+</h2>
+
+<span>
+محصولات موجود
+</span>
+
+</div>
+
+<div id="products" class="products"></div>
+
+</main>
+
+</section>
+
+
+<!-- سبد خرید -->
+
+<section id="cart" class="page">
+
+<main>
+
+<h2>
+🛒 سبد خرید
+</h2>
+
+<div id="cartItems" class="cart">
+سبد خرید خالی است.
+</div>
+
+</main>
+
+</section>
+
+
+<!-- داشبورد -->
+
+<section id="dashboard" class="page">
+
+<main>
+
+<h2>
+📊 داشبورد مدیریت
+</h2>
+
+<div id="login">
+
+<div class="login">
+
+<h3>
+ورود مدیر
+</h3>
+
+<input
+id="password"
+type="password"
+placeholder="رمز عبور">
+
+<button onclick="adminLogin()">
+ورود
+</button>
+
+<p>
+رمز آزمایشی:
+<b>admin123</b>
+</p>
+
+</div>
+
+</div>
+
+
+<div id="adminPanel" style="display:none">
+
+<div class="stats">
+
+<div class="stat">
+<span class="stat-title">
+فروش
+</span>
+<span id="sales" class="stat-value">
+0
+</span>
+</div>
+
+<div class="stat">
+<span class="stat-title">
+درآمد
+</span>
+<span id="revenue" class="stat-value">
+۰ تومان
+</span>
+</div>
+
+<div class="stat">
+<span class="stat-title">
+مشتری
+</span>
+<span id="customers" class="stat-value">
+0
+</span>
+</div>
+
+<div class="stat">
+<span class="stat-title">
+میانگین سفارش
+</span>
+<span id="average" class="stat-value">
+۰ تومان
+</span>
+</div>
+
+</div>
+
+
+<div class="chart">
+
+<div class="bar" style="height:45%">
+<span>شنبه</span>
+</div>
+
+<div class="bar" style="height:65%">
+<span>یکشنبه</span>
+</div>
+
+<div class="bar" style="height:50%">
+<span>دوشنبه</span>
+</div>
+
+<div class="bar" style="height:80%">
+<span>سه‌شنبه</span>
+</div>
+
+<div class="bar" style="height:60%">
+<span>چهارشنبه</span>
+</div>
+
+<div class="bar" style="height:90%">
+<span>پنجشنبه</span>
+</div>
+
+<div class="bar" style="height:75%">
+<span>امروز</span>
+</div>
+
+</div>
+
+
+<div class="table">
+
+<h3>
+آخرین سفارش‌ها
+</h3>
+
+<table>
+
+<thead>
+
+<tr>
+<th>مشتری</th>
+<th>محصول</th>
+<th>مبلغ</th>
+</tr>
+
+</thead>
+
+<tbody id="orders"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</main>
+
+</section>
+
+
+<!-- پیام‌ها -->
+
+<section id="chat" class="page">
+
+<main>
+
+<h2>
+💬 پیام مشتریان
+</h2>
+
+<div class="chat">
+
+<div id="customerList" class="customers">
+</div>
+
+<div>
+
+<div id="messages" class="messages">
+</div>
+
+<div class="send">
+
+<input
+id="messageInput"
+placeholder="پیام خود را بنویسید...">
+
+<button onclick="sendMessage()">
+ارسال
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+</section>
+
+
+<script>
+
+const products = [
+
+{
+id:1,
+name:"سانسوریا",
+price:420000,
+emoji:"🪴",
+desc:"گیاه مقاوم برای محیط‌های کم‌نور"
+},
+
+{
+id:2,
+name:"مونسترا",
+price:690000,
+emoji:"🌿",
+desc:"گیاه محبوب با برگ‌های بزرگ"
+},
+
+{
+id:3,
+name:"ارکیده سفید",
+price:980000,
+emoji:"🌸",
+desc:"انتخابی زیبا برای هدیه"
+},
+
+{
+id:4,
+name:"کاکتوس",
+price:190000,
+emoji:"🌵",
+desc:"کوچک، زیبا و کم‌دردسر"
+},
+
+{
+id:5,
+name:"زامیفولیا",
+price:560000,
+emoji:"🌱",
+desc:"مناسب خانه و محل کار"
+},
+
+{
+id:6,
+name:"فیکوس",
+price:850000,
+emoji:"🌳",
+desc:"گیاهی شیک برای دکوراسیون"
+}
+
+];
+
+let cart=[];
+
+let orders=[];
+
+let activeCustomer=0;
+
+
+const customersData=[
+
+{
+name:"مریم احمدی",
+messages:[
+{
+type:"customer",
+text:"سلام، برای نور کم چه گیاهی پیشنهاد می‌کنید؟"
+},
+{
+type:"admin",
+text:"سلام 🌿 سانسوریا انتخاب مناسبی است."
+}
+]
+},
+
+{
+name:"علی رضایی",
+messages:[
+{
+type:"customer",
+text:"سلام، سفارش من چه زمانی ارسال می‌شود؟"
+}
+]
+},
+
+{
+name:"سارا کریمی",
+messages:[
+{
+type:"customer",
+text:"آیا بسته‌بندی هدیه دارید؟"
+}
+]
+}
+
+];
+
+
+function money(number){
+
+return new Intl.NumberFormat("fa-IR")
+.format(number)+" تومان";
+
+}
+
+
+function renderProducts(){
+
+const box=document.getElementById("products");
+
+box.innerHTML="";
+
+products.forEach(p=>{
+
+box.innerHTML+=`
+
+<div class="card">
+
+<div class="plant">
+${p.emoji}
+</div>
+
+<h3>
+${p.name}
+</h3>
+
+<div class="desc">
+${p.desc}
+</div>
+
+<div class="product-bottom">
+
+<span class="price">
+${money(p.price)}
+</span>
+
+<button class="add"
+onclick="addCart(${p.id})">
+
+افزودن
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+function addCart(id){
+
+cart.push(id);
+
+document.getElementById("cartCount")
+.innerText=cart.length;
+
+renderCart();
+
+alert("محصول به سبد خرید اضافه شد 🌿");
+
+}
+
+
+function renderCart(){
+
+const box=document.getElementById("cartItems");
+
+if(cart.length===0){
+
+box.innerHTML="سبد خرید خالی است.";
+
+return;
+
+}
+
+let total=0;
+
+box.innerHTML="";
+
+cart.forEach((id,index)=>{
+
+const p=products.find(x=>x.id===id);
+
+total+=p.price;
+
+box.innerHTML+=`
+
+<div class="cart-item">
+
+<span>
+${p.emoji} ${p.name}
+</span>
+
+<span>
+${money(p.price)}
+</span>
+
+<button onclick="removeCart(${index})">
+حذف
+</button>
+
+</div>
+
+`;
+
+});
+
+box.innerHTML+=`
+
+<div class="total">
+مجموع:
+${money(total)}
+</div>
+
+<br>
+
+<button class="add" onclick="checkout()">
+ثبت سفارش
+</button>
+
+`;
+
+}
+
+
+function removeCart(index){
+
+cart.splice(index,1);
+
+document.getElementById("cartCount")
+.innerText=cart.length;
+
+renderCart();
+
+}
+
+
+function checkout(){
+
+if(cart.length===0){
+
+alert("سبد خرید خالی است.");
+
+return;
+
+}
+
+let total=0;
+
+let names=[];
+
+cart.forEach(id=>{
+
+const p=products.find(x=>x.id===id);
+
+total+=p.price;
+
+names.push(p.name);
+
+});
+
+
+orders.push({
+
+customer:"مشتری جدید",
+
+products:names.join("، "),
+
+amount:total
+
+});
+
+
+cart=[];
+
+document.getElementById("cartCount")
+.innerText=0;
+
+renderCart();
+
+alert("سفارش ثبت شد 🌿");
+
+}
+
+
+function page(name,button){
+
+document
+.querySelectorAll(".page")
+.forEach(x=>x.classList.remove("active"));
+
+document
+.getElementById(name)
+.classList.add("active");
+
+
+document
+.querySelectorAll("nav button")
+.forEach(x=>x.classList.remove("active"));
+
+button.classList.add("active");
+
+
+if(name==="dashboard"){
+
+updateDashboard();
+
+}
+
+if(name==="chat"){
+
+renderCustomers();
+
+renderMessages();
+
+}
+
+}
+
+
+function productsScroll(){
+
+document
+.getElementById("products")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+function adminLogin(){
+
+const password=
+document.getElementById("password").value;
+
+if(password==="admin123"){
+
+document.getElementById("login")
+.style.display="none";
+
+document.getElementById("adminPanel")
+.style.display="block";
+
+updateDashboard();
+
+}else{
+
+alert("رمز عبور اشتباه است.");
+
+}
+
+}
+
+
+function updateDashboard(){
+
+let revenue=0;
+
+orders.forEach(o=>{
+revenue+=o.amount;
+});
+
+
+document.getElementById("sales")
+.innerText=orders.length;
+
+document.getElementById("revenue")
+.innerText=money(revenue);
+
+document.getElementById("customers")
+.innerText=orders.length;
+
+document.getElementById("average")
+.innerText=
+money(
+orders.length
+? Math.round(revenue/orders.length)
+: 0
+);
+
+
+const table=
+document.getElementById("orders");
+
+table.innerHTML="";
+
+
+orders.forEach(o=>{
+
+table.innerHTML+=`
+
+<tr>
+
+<td>
+${o.customer}
+</td>
+
+<td>
+${o.products}
+</td>
+
+<td>
+${money(o.amount)}
+</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+
+function renderCustomers(){
+
+const box=
+document.getElementById("customerList");
+
+box.innerHTML="";
+
+customersData.forEach((c,i)=>{
+
+box.innerHTML+=`
+
+<button
+class="customer
+${i===activeCustomer?"active":""}"
+
+onclick="selectCustomer(${i})">
+
+${c.name}
+
+</button>
+
+`;
+
+});
+
+}
+
+
+function selectCustomer(index){
+
+activeCustomer=index;
+
+renderCustomers();
+
+renderMessages();
+
+}
+
+
+function renderMessages(){
+
+const box=
+document.getElementById("messages");
+
+box.innerHTML="";
+
+customersData[
+activeCustomer
+].messages.forEach(m=>{
+
+box.innerHTML+=`
+
+<div class="
+message
+${m.type==="admin"
+?"from-admin"
+:"from-customer"}">
+
+${m.text}
+
+</div>
+
+`;
+
+});
+
+box.scrollTop=box.scrollHeight;
+
+}
+
+
+function sendMessage(){
+
+const input=
+document.getElementById("messageInput");
+
+const text=input.value.trim();
+
+if(!text)return;
+
+
+customersData[
+activeCustomer
+].messages.push({
+
+type:"admin",
+
+text:text
+
+});
+
+
+input.value="";
+
+renderMessages();
+
+}
+
+
+renderProducts();
+
+renderCart();
+
+renderCustomers();
+
+renderMessages();
+
+</script>
+
+</body>
+</html>
